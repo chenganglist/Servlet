@@ -20,10 +20,25 @@ public class helloServlet extends HttpServlet {
   {
       // Set response content type
       response.setContentType("text/html");
- 
+      
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
-      out.println("<h1>" + message + "</h1>");
+      out.println(request);
+      out.println(message);
+  }
+
+  public void doPost(HttpServletRequest request,
+                   HttpServletResponse response)
+    throws ServletException, IOException 
+  {
+      // Servlet 代码
+      // Set response content type
+      response.setContentType("text/html");
+      
+      // Actual logic goes here.
+      PrintWriter out = response.getWriter();
+      out.println(request);
+      out.println(message);
   }
   
   public void destroy()
