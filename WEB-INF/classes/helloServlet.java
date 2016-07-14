@@ -20,7 +20,8 @@ public class helloServlet extends HttpServlet {
             throws ServletException, IOException
   {
       // Set response content type
-      response.setContentType("text/html");
+      request.setCharacterEncoding("UTF-8");
+      response.setContentType("text/html;charset=UTF-8");
       
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
@@ -35,7 +36,8 @@ public class helloServlet extends HttpServlet {
       //HashMap<String, String> hashMap = new HashMap<String, String>();  
       // Servlet 代码
       // Set response content type
-      response.setContentType("text/html");
+      request.setCharacterEncoding("UTF-8");
+      response.setContentType("text/html;charset=UTF-8");
       
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
@@ -78,7 +80,7 @@ public class helloServlet extends HttpServlet {
                 {
                     out.println(paramValues[i]+",");
                 }
-                out.println(paramValues[i]);
+                out.println(paramValues[paramValues.length-1]);
                 out.println("]");
           }
       }
