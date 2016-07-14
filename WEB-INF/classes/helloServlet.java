@@ -47,24 +47,38 @@ public class helloServlet extends HttpServlet {
       while(paramNames.hasMoreElements()) 
       {
           String paramName = (String)paramNames.nextElement();
-          out.print("paramName:");
+          out.print(paramName+":");
           String[] paramValues = request.getParameterValues(paramName);
           // 读取单个值的数据
           if (paramValues.length == 1) 
           {
                 String paramValue = paramValues[0];
-                if (paramValue.length() == 0)
-                  out.println("没有值,");
-                else
-                  out.println("paramValue,");
+                if(paramNames.hasMoreElements())
+                {
+                    if (paramValue.length() == 0)
+                    {
+                       out.println("没有值,");
+                    }else
+                    {
+                      out.println(paramValue+",");                 
+                    }
+                }else
+                {
+                    if (paramValue.length() == 0)
+                       out.println("没有值");
+                    else
+                      out.println(paramValue);   
+                }
+
           }else 
           {
                 // 读取多个值的数据
                 out.println("[");
-                for(int i=0; i < paramValues.length; i++) 
+                for(int i=0; i < paramValues.length-1; i++) 
                 {
                     out.println(paramValues[i]+",");
                 }
+                out.println(paramValues[i]);
                 out.println("]");
           }
       }
